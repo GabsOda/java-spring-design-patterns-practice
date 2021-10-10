@@ -1,5 +1,7 @@
 package com.gIssamu.javaspringdesignpatternspractice.service.implemented;
 
+import java.util.Optional;
+
 import com.gIssamu.javaspringdesignpatternspractice.model.Address;
 import com.gIssamu.javaspringdesignpatternspractice.model.Client;
 import com.gIssamu.javaspringdesignpatternspractice.repository.AddressRepository;
@@ -39,13 +41,12 @@ public class ClientServiceImpl implements ClientService{
     }
 
     @Override
-    public void update(Long id, Client clinet) {
-        saveClientWithCep(
-            clientRepository.findById(id)
-                .orElseGet(() -> {
-                    return null; 
-                })
-        ); 
+    public void update(Long id, Client client) {
+        Optional<Client> clientDb = clientRepository.findById(id);
+
+        if(clientDb.isPresent()) {
+            saveClientWithCep(client);
+        }
         
     }
 

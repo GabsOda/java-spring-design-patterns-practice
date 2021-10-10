@@ -10,7 +10,7 @@ public interface ClientService {
 
     void insert(Client client);
 
-    void update(Long id, Client clinet);
+    void update(Long id, Client client);
 
     void delete(Long id); 
 }
