@@ -47,7 +47,6 @@ public class ClientServiceImpl implements ClientService{
         if(clientDb.isPresent()) {
             saveClientWithCep(client);
         }
-        
     }
 
     @Override
